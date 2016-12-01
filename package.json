@@ -2,7 +2,7 @@
   "name": "react-form-control",
   "version": "1.0.0",
   "description": "React Component Library",
-  "main": "public/js/app.js",
+  "main": "dist/js/app.js",
   "peerDependencies": {
     "react": ">=0.14.0",
     "react-dom": ">=0.14.0"
@@ -40,7 +40,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "public/**"
+    "dist/**"
   ],
   "author": "Blake Guilloud",
   "license": "ISC"

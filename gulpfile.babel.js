@@ -12,6 +12,7 @@ const postcss = require('gulp-postcss');
 const serve = require('gulp-serve');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
+const distWebpackConfig = require('./dist.webpack.config');
 
 // ------------------------------
 // serve
@@ -19,6 +20,11 @@ const webpackConfig = require('./webpack.config');
 gulp.task('serve', ['build:jsClient', 'build:styles', 'watch'], serve({
     port: 3000,
 }));
+
+// ------------------------------
+// dist
+// ------------------------------
+gulp.task('dist', ['dist:jsClient', 'dist:styles']);
 
 // ------------------------------
 // watch
@@ -54,4 +60,33 @@ gulp.task('build:styles', () => {
     .pipe(less({ compress: true }))
     .pipe(postcss(processors))
     .pipe(gulp.dest('./public/less'));
+});
+
+
+// ------------------------------
+// dist
+// ------------------------------
+gulp.task('dist:jsClient', (callback) => {
+  webpack(distWebpackConfig, (err, stats) => {
+    if (err) throw new gutil.PluginError('build:jsClient', err);
+    gutil.log('build:jsClient', stats.toString({
+      colors: true,
+      exclude: 'node_modules',
+    }));
+    callback();
+  });
+});
+
+// ------------------------------
+// build:styles
+// ------------------------------
+gulp.task('dist:styles', () => {
+  const processors = [
+    autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false}),
+    cssnano(),
+  ];
+  return gulp.src(['./src/less/app.less'])
+    .pipe(less({ compress: true }))
+    .pipe(postcss(processors))
+    .pipe(gulp.dest('./dist/less'));
 });
