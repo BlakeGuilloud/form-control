@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: {
     'react-form-control': [path.join(__dirname, './src/components/index.js')],
   },
