@@ -12,7 +12,7 @@ const postcss = require('gulp-postcss');
 const serve = require('gulp-serve');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
-const distWebpackConfig = require('./dist.webpack.config');
+const distWebpackConfig = require('./webpack.dist.config');
 
 // ------------------------------
 // serve
@@ -62,7 +62,6 @@ gulp.task('build:styles', () => {
     .pipe(gulp.dest('./public/less'));
 });
 
-
 // ------------------------------
 // dist
 // ------------------------------
@@ -78,7 +77,7 @@ gulp.task('dist:jsClient', (callback) => {
 });
 
 // ------------------------------
-// build:styles
+// dist:styles
 // ------------------------------
 gulp.task('dist:styles', () => {
   const processors = [

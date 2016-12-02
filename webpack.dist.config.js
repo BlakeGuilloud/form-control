@@ -1,19 +1,20 @@
 import webpack from 'webpack';
 import path    from 'path';
 
-export default {
+module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: {
-    rhinostyle: [path.join(__dirname, './src/components/index.js')],
+    'form-control': [path.join(__dirname, './src/components/index.js')],
   },
   externals: {
     react: 'umd react',
     'react-dom': 'umd react-dom',
   },
   output: {
-    path: path.join(__dirname, '../dist/scripts'),
+    path: path.join(__dirname, './dist/js'),
     filename: '[name].min.js',
     libraryTarget: 'umd',
-    library: 'rhinostyle',
+    library: 'form-control',
   },
   module: {
     loaders: [
