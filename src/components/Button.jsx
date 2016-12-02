@@ -17,7 +17,7 @@ export default class Button extends Component {
   render() {
     const { className, type } = this.props;
 
-    const classes = cx('btn', className, {
+    const classes = cx('btn form__group', className, {
       'btn-default': type === 'default',
       'btn-secondary': type === 'secondary',
       'btn-primary': type === 'primary',
