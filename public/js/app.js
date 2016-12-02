@@ -28189,6 +28189,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var dog = __webpack_require__(327);
+	console.log('doggy', _get__('dog'));
+
 	var App = function (_get__2) {
 	  (0, _inherits3.default)(App, _get__2);
 
@@ -28264,6 +28267,9 @@
 
 	function _get_original__(variableName) {
 	  switch (variableName) {
+	    case 'dog':
+	      return dog;
+
 	    case 'Component':
 	      return _react.Component;
 

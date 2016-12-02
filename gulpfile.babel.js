@@ -68,8 +68,8 @@ gulp.task('build:styles', () => {
 // ------------------------------
 gulp.task('dist:jsClient', (callback) => {
   webpack(distWebpackConfig, (err, stats) => {
-    if (err) throw new gutil.PluginError('build:jsClient', err);
-    gutil.log('build:jsClient', stats.toString({
+    if (err) throw new gutil.PluginError('dist:jsClient', err);
+    gutil.log('dist:jsClient', stats.toString({
       colors: true,
       exclude: 'node_modules',
     }));

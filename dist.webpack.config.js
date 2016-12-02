@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: './dist/js',
-    filename: '[name].js',
+    filename: '[name].min.js',
   },
   module: {
     loaders: [
