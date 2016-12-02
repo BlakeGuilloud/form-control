@@ -1,6 +1,6 @@
 {
   "name": "react-form-control",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "React Component Library",
   "main": "dist/js/react-form-control.min.js",
   "peerDependencies": {
