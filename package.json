@@ -2,7 +2,7 @@
   "name": "react-form-control",
   "version": "1.0.6",
   "description": "React Component Library",
-  "main": "dist/js/app.min.js",
+  "main": "public/js/app.js",
   "peerDependencies": {
     "react": ">=0.14.0",
     "react-dom": ">=0.14.0"

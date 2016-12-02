@@ -3,6 +3,8 @@ import { Input } from './components';
 
 const dog = require('../dist/js/app.min');
 console.log('doggy', dog);
+const cat = require('./components');
+console.log('cat', cat);
 
 export default class App extends Component {
   render() {

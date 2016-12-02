@@ -8,7 +8,7 @@ const dependencies = [
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/components/index.js',
     vendor: dependencies,
   },
   output: {

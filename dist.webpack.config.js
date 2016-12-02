@@ -1,34 +1,41 @@
-const path = require('path');
+import webpack from 'webpack';
+import path    from 'path';
 
-const dependencies = [
-  'react',
-  'react-dom',
-  'react-router',
-];
-
-module.exports = {
+export default {
   entry: {
-    app: './src/components/index.js',
-    vendor: dependencies,
+    rhinostyle: [path.join(__dirname, './src/components/index.js')],
+  },
+  externals: {
+    react: 'umd react',
+    'react-dom': 'umd react-dom',
   },
   output: {
-    path: './dist/js',
+    path: path.join(__dirname, '../dist/scripts'),
     filename: '[name].min.js',
+    libraryTarget: 'umd',
+    library: 'rhinostyle',
   },
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/] },
     ],
   },
   resolve: {
-    alias: {
-      react: path.join(__dirname, './', 'node_modules', 'react'),
-    },
     extensions: ['', '.js', '.jsx'],
   },
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false,
+      },
+    }),
+  ],
 };
