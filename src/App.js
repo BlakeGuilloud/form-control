@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Input } from './components';
+import { Button, Input } from './components';
+console.log('Button', Button);
 
 export default class App extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends Component {
             <Input label="Hello world" name="helloWorld" initialValue="Heyyo" />
           </div>
         </div>
+        <Button type="primary">Hello world</Button>
       </div>
     );
   }
