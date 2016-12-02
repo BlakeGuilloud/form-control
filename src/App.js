@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Input } from './components';
 
-const dog = require('./components');
-console.log('doggy', dog);
 
 export default class App extends Component {
   render() {
