@@ -87,5 +87,5 @@ gulp.task('dist:styles', () => {
   return gulp.src(['./src/less/app.less'])
     .pipe(less({ compress: true }))
     .pipe(postcss(processors))
-    .pipe(gulp.dest('./dist/less'));
+    .pipe(gulp.dest('./dist/css'));
 });

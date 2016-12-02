@@ -1,10 +1,9 @@
 import webpack from 'webpack';
-import path    from 'path';
+import path from 'path';
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
   entry: {
-    'form-control': [path.join(__dirname, './src/components/index.js')],
+    'react-form-control': [path.join(__dirname, './src/components/index.js')],
   },
   externals: {
     react: 'umd react',
@@ -14,7 +13,7 @@ module.exports = {
     path: path.join(__dirname, './dist/js'),
     filename: '[name].min.js',
     libraryTarget: 'umd',
-    library: 'form-control',
+    library: 'react-form-control',
   },
   module: {
     loaders: [

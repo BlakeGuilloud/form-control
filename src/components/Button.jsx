@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 export default class Button extends Component {
-  static propTypes = {}
+  static propTypes = {
+    children: React.PropTypes.node,
+    onClick: React.PropTypes.func,
+    type: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'danger', 'warning']),
+  }
 
-  state = {
-    value: '',
-  };
+  _handleClick = (event) => {
+    event.preventDefault();
 
-  componentWillMount() {}
-
-  _handleChange = (event) => {}
+    if (this.props.onClick && typeof this.props.onClick === 'function') this.props.onClick();
+  }
 
   render() {
+    const { className, type } = this.props;
+
+    const classes = cx('btn', className, {
+      'btn-default': type === 'default',
+      'btn-secondary': type === 'secondary',
+      'btn-primary': type === 'primary',
+      'btn-warning': type === 'warning',
+      'btn-danger': type === 'danger',
+    });
+
     return (
-      <div>
-        <button>Hello World</button>
-      </div>
+      <button className={classes} onClick={this._handleClick}>{this.props.children}</button>
     );
   }
 }
