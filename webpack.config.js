@@ -8,12 +8,12 @@ const dependencies = [
 
 module.exports = {
   entry: {
-    app: './src/components/index.js',
+    app: './src/index.js',
     vendor: dependencies,
   },
   output: {
-    path: './dist/js',
-    filename: '[name].min.js',
+    path: './public/js',
+    filename: '[name].js',
   },
   module: {
     loaders: [
